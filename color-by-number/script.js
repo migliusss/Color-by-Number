@@ -124,3 +124,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+/**
+ * This script is used to show confetti when the user clicks the submit button.
+ *
+ * Library used for confetti -> https://github.com/loonywizard/js-confetti
+ */
+const button = document.querySelector("#submit-button");
+const canvas = document.querySelector("#confetti");
+
+const jsConfetti = new JSConfetti();
+
+button.addEventListener("click", () => {
+  const selectedValue = document.getElementById("image-select").value;
+
+  if (selectedValue === "rainbow") {
+    jsConfetti.addConfetti({
+      emojis: ["🌈", "✨", "💫"],
+    });
+  } else if (selectedValue === "heart") {
+    jsConfetti.addConfetti({
+      emojis: ["💖", "✨", "💫"],
+    });
+  } else if (selectedValue === "cat") {
+    jsConfetti.addConfetti({
+      emojis: ["🐱", "✨", "💫"],
+    });
+  }
+});
